@@ -9,25 +9,28 @@
 <body>
 
     <h1>Courses</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Course Name</th>
-                <th>Course Code</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            {{# items }}
-            <tr>
-                <td>{{ id }}</td>
-                <td>{{ course_name }}</td>
-                <td>{{ course_code }}</td>
-            </tr>
-            {{/ items }}
-        </tbody>
-    </table>
+    <div class = "container">
+        <table class = "table">
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Credits</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#items}}
+                <tr>
+                    <td>{{course_name}}</td>
+                    <td>{{course_code}}</td>
+                    <td>{{description}}</td>
+                    <td>{{credits}}</td>
+                </tr>
+                {{/items}}
+            </tbody>
+        </table>
+    </div>
 
     <a href="/enrollment-form">Enroll a Student</a>
 

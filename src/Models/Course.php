@@ -7,9 +7,12 @@ use \PDO;
 
 class Course extends BaseModel
 {
+    
+    public $course_code, $course_name;
+
     public function all()
     {
-        $sql = "";
+        $sql = "SELECT * FROM courses";
         $statement = $this->db->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_CLASS, '\App\Models\Course');
@@ -37,6 +40,14 @@ class Course extends BaseModel
         ]);
         $result = $statement->fetchAll();
         return $result;
+    }
+
+    public function getCourseCode() {
+        return $this->course_code;
+    }
+
+    public function getCourseName() {
+        return $this->course_name;
     }
 
 }
