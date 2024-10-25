@@ -21,7 +21,7 @@ class Course extends BaseModel
 
     public function find($course_code)
     {
-        $sql = "SELECT * FROM courses WHERE course_code=?";
+        $sql = "SELECT * FROM courses WHERE course_code= :course_code";
         $statement = $this->db->prepare($sql);
         $statement->execute([$course_code]);
         $result = $statement->fetchObject('\App\Models\Course');
