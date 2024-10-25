@@ -13,23 +13,23 @@
         <table class="table table-striped">
             <thead class="table-dark">
                 <tr>
-                    <th>ID</th>
                     <th>Student Code</th>
                     <th>Student Name</th>
                     <th>Email</th>
                     <th>Date of Birth</th>
                     <th>Sex</th>
+                    <th class="text-center">Enrolled Courses</th>
                 </tr>
             </thead>
             <tbody>
                 {{#items}}
                 <tr>
-                    <td>{{id}}</td>
                     <td>{{student_code}}</td>
                     <td>{{name}}</td>
                     <td>{{email}}</td>
                     <td>{{birthdate}}</td>
                     <td>{{sex}}</td>
+                    <td class="text-center">{{course_codes}}</td>
                 </tr>
                 {{/items}}
                 {{^items}}
@@ -40,7 +40,7 @@
             </tbody>
             <tfoot>
                 <tr class="table-info">
-                    <td colspan="6" class="text-end">
+                    <td colspan="8" class="text-center">
                         <strong>Total Students: {{total_students}}</strong>
                     </td>
                 </tr>
