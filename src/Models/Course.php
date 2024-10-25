@@ -19,20 +19,20 @@ class Course extends BaseModel
         return $result;
     }
 
-    public function find($code)
+    public function find($course_code)
     {
         $sql = "SELECT * FROM courses WHERE course_code=?";
         $statement = $this->db->prepare($sql);
-        $statement->execute([$code]);
+        $statement->execute([$course_code]);
         $result = $statement->fetchObject('\App\Models\Course');
         return $result;
     }
 
     public function getEnrolees($course_code)
     {
-        $sql = "SELECT
-                FROM course_enrollments AS ce
-                LEFT JOIN students AS s ON (s.student_code=ce.student_code)
+        $sql = "SELECT s.*
+                FROM course_enrollments ce
+                LEFT JOIN students s ON (s.student_code = ce.student_code)
                 WHERE ce.course_code = :course_code";
         $statement = $this->db->prepare($sql);
         $statement->execute([
