@@ -25,8 +25,8 @@ class CourseController extends BaseController
     public function viewCourse($course_code)
     {
         $courseObj = new Course();
-        $course = null;
-        $enrollees = [];
+        $course = $courseObj->find($course_code);
+        $enrollees = $courseObj->getEnrolees($course_code);
 
         $template = 'single-course';
         $data = [
