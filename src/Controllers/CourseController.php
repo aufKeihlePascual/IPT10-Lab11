@@ -26,12 +26,14 @@ class CourseController extends BaseController
     {
         $courseObj = new Course();
         $course = $courseObj->find($course_code);
-        $enrollees = $courseObj->getEnrolees($course_code);
+        $enrolees = $courseObj->getEnrolees($course_code);
+        $total_enrolees = count($enrolees);
 
         $template = 'single-course';
         $data = [
             'course' => $course,
-            'enrollees' => $enrollees
+            'enrolees' => $enrolees,
+            'total_enrolees' => $total_enrolees
         ];
 
         $output = $this->render($template, $data);
