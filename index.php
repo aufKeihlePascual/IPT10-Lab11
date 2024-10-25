@@ -12,11 +12,13 @@ try {
     $router = new \Bramus\Router\Router();
 
     // Define routes
+    $router->get('/', '\App\Controllers\StudentController@list');
     $router->get('/students', '\App\Controllers\StudentController@list');
     $router->get('/courses', '\App\Controllers\CourseController@list');
     $router->get('/courses/{course_code}', '\App\Controllers\CourseController@viewCourse');
     $router->get('/enrollment-form', '\App\Controllers\EnrolmentController@enrollmentForm');
     $router->post('/enroll', '\App\Controllers\EnrolmentController@enroll');
+    $router->get('/export-course/{course_code}', '\App\Controllers\CourseController@exportPDF');
 
     // Run it!
     $router->run();
