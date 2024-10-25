@@ -11,10 +11,12 @@ class StudentController extends BaseController
     {
         $obj = new Student();
         $students = $obj->all();
+        $total_students = count($students);
 
         $template = 'students';
         $data = [
-            'items' => $students
+            'items' => $students,
+            'total_students' => $total_students
         ];
 
         $output = $this->render($template, $data);
